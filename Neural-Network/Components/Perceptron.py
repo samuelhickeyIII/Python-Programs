@@ -1,6 +1,4 @@
 import numpy as np
-from scipy import rand
-
 
 class Perceptron(object):
     def __init__(self, **kwargs):
