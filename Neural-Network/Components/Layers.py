@@ -6,9 +6,12 @@ class InputLayer(object):
     """
     Creates a layer of Perceptrons with a bias=0, weights=np.ones(*attributes.shape) and an activation function of the form lambda x: x
     """
-    def __init__(self, **kwargs):
+    def __init__(self, units=0, **kwargs):
+        if units <= 0:
+            ValueError("Units specifies the number of nodes in a layer. Must be a positive integer")
+        self.units = units
         self.perceptrons = []
-        for _ in range(kwargs.get("num_of_attr", 0)):
+        for _ in range(units):
             self.perceptrons.append(
                 Perceptron(
                     weights=np.ones((1,1)),
@@ -25,7 +28,7 @@ class InputLayer(object):
 
 
 def main():
-    input_layer = InputLayer(num_of_attr=10)
+    input_layer = InputLayer(units=10)
     print(input_layer)
 
 
