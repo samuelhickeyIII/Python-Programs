@@ -40,10 +40,10 @@ class Perceptron(object):
         return self.output
 
     def __str__(self) -> str:
-        return f"weights={self.weights} \n" + \
+        return f"\nweights={self.weights} \n" + \
             f"bias={self.bias} \n" + \
             f"activation=\"{self.activation}\"\n" + \
-            f"output={self.output}\n\n"
+            f"output={self.output}\n"
 
 def main():
     mlr = Perceptron(
