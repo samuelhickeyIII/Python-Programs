@@ -4,11 +4,15 @@ from Perceptron import Perceptron
 
 class InputLayer(object):
     """
-    Creates a layer of Perceptrons with a bias=0, weights=np.ones(*attributes.shape) and an activation function of the form lambda x: x
+    Creates a layer of Perceptrons with a bias=0, 
+    weights=np.ones(*attributes.shape) and 
+    an activation function of the form lambda x: x
+
     """
     def __init__(self, units=0, **kwargs):
         if units <= 0:
-            ValueError("Units specifies the number of nodes in a layer. Must be a positive integer")
+            ValueError("Units specifies the number of nodes in a layer. Must" \
+                + " be a positive integer")
         self.units = units
         self.perceptrons = []
         for _ in range(units):
@@ -19,6 +23,7 @@ class InputLayer(object):
                     activation="input_layer"
                 )
             )
+
 
     def __str__(self) -> str:
         layer = ""
