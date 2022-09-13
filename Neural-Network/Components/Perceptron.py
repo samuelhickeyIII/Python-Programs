@@ -2,6 +2,7 @@ import numpy as np
 from numpy.typing import DTypeLike
 
 class Perceptron(object):
+
     def __init__(self, **kwargs):
         """
         Parameters:
@@ -16,6 +17,7 @@ class Perceptron(object):
         self.activation = kwargs.get("activation", None)
         self.output = None
 
+
     def generate(self, feature_vec:np.dtype('float64'), weights=None):
         # Parameter validation
         try:
@@ -26,10 +28,9 @@ class Perceptron(object):
         if weights and weights.dtype == np.dtype('float64') \
         and weights.shape == feature_vec.shape:
             self.weights = weights
-        else:
+        elif self.weights is None:
             self.weights = np.random.rand(feature_vec.shape[0])
 
-        # Multiply the vectors
         result = self.bias \
             + np.sum(np.multiply(feature_vec, self.weights))
 
@@ -37,7 +38,10 @@ class Perceptron(object):
             self.output = result
         if self.activation == "sigmoid":
             self.output = 1.0 / (1.0 + np.exp(-result))
+        if self.activation == "relu":
+            self.output = max(0, result)
         return self.output
+
 
     def __str__(self) -> str:
         return f"\nweights={self.weights} \n" + \
@@ -45,15 +49,64 @@ class Perceptron(object):
             f"activation=\"{self.activation}\"\n" + \
             f"output={self.output}\n"
 
+
 def main():
-    mlr = Perceptron(
-        weights=np.random.rand(1,5),
-        bias=np.random.rand(1)[0],
+    input_ = np.array([1, 1], dtype=np.float64)
+    print(f"\ninput = {input_}\n")
+
+    and_ = Perceptron(
+        weights=np.array([1, 1], dtype=np.float64),
+        bias=np.float64(-1),
         activation="sigmoid"
     )
+    aand = np.round(and_.generate(feature_vec=input_))
+    or_ = Perceptron(
+        weights=np.array([.25, .25], dtype=np.float64),
+        bias=np.float64(0),
+        activation="sigmoid"
+    )
+    oor = np.round(or_.generate(feature_vec=input_))
+    not_ = Perceptron(
+        weights = np.array([-1, -1], dtype=np.float64),
+        bias=np.float64(1),
+        activation="sigmoid"
+    )
+    nnot = np.round(not_.generate(feature_vec=input_))
+
+    nand = Perceptron(
+        weights = np.array([-2, 0], dtype=np.float64),
+        bias=np.float64(1),
+        activation="sigmoid"
+    )
+    nnand = np.round(nand.generate(
+        feature_vec=np.array([aand, oor], dtype=np.float64)
+    ))
+
+    nor_ = Perceptron(
+        weights = np.array([-2, -2], dtype=np.float64),
+        bias=np.float64(1),
+        activation="sigmoid"
+    )
+    nnor = np.round(nor_.generate(
+        feature_vec=np.array([aand, oor], dtype=np.float64)
+    ))
+
+    xor_ = Perceptron(
+        weights = np.array([-1, 1], dtype=np.float64),
+        bias=np.float64(0),
+        activation="sigmoid"
+    )
+    xxor = np.round(xor_.generate(
+        feature_vec=np.array([aand, oor], dtype=np.float64)
+    ))
     
-    mlr.generate(feature_vec=np.random.rand(1,5))
-    print(mlr)
+    print(f"and_ node: {and_}  and={aand}\n")
+    print(f"or_  node: {or_}  or={oor}\n")
+    print(f"not_ node: {not_}  not={nnot}\n")
+    print(f"nand node: {nand}  not={nnand}\n")
+    print(f"nor_ node: {nor_}  not={nnor}\n")
+    print(f"xor_ node: {xor_}  xor={xxor}")
+
 
 if __name__ == "__main__":
     main()
