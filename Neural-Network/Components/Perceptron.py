@@ -99,6 +99,8 @@ def main():
     xxor = np.round(xor_.generate(
         feature_vec=np.array([aand, oor], dtype=np.float64)
     ))
+
+    # xnor here
     
     print(f"and_ node: {and_}  and={aand}\n")
     print(f"or_  node: {or_}  or={oor}\n")
