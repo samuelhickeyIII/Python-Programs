@@ -51,7 +51,7 @@ class Perceptron(object):
 
 
 def main():
-    input_ = np.array([1, 1], dtype=np.float64)
+    input_ = np.array([0, 0], dtype=np.float64)
     print(f"\ninput = {input_}\n")
 
     and_ = Perceptron(
@@ -92,7 +92,7 @@ def main():
     ))
 
     xor_ = Perceptron(
-        weights = np.array([-1, 1], dtype=np.float64),
+        weights=np.array([-1, 1], dtype=np.float64),
         bias=np.float64(0),
         activation="sigmoid"
     )
@@ -100,14 +100,22 @@ def main():
         feature_vec=np.array([aand, oor], dtype=np.float64)
     ))
 
-    # xnor here
-    
+    xnor = Perceptron(
+        weights=np.array([1, -1]),
+        bias=np.float64(1),
+        activation="sigmoid"
+    )
+    xxnor = np.round(xnor.generate(
+        feature_vec=np.array([aand, oor], dtype=np.float64)
+    ))
+
     print(f"and_ node: {and_}  and={aand}\n")
     print(f"or_  node: {or_}  or={oor}\n")
     print(f"not_ node: {not_}  not={nnot}\n")
     print(f"nand node: {nand}  not={nnand}\n")
     print(f"nor_ node: {nor_}  not={nnor}\n")
-    print(f"xor_ node: {xor_}  xor={xxor}")
+    print(f"xor_ node: {xor_}  xor={xxor}\n")
+    print(f"xnor node: {xnor}  xnor={xxnor}")
 
 
 if __name__ == "__main__":
