@@ -31,11 +31,33 @@ INSERT INTO GAMES (
             ,`MATCH`
             ,SHA2(
                     CONCAT(
-                        WHITE
+                        `EVENT`
+                        ,`SITE`
+                        ,`START_DATE`
+                        ,`ROUND`
+                        ,WHITE
                         ,BLACK
                         ,RESULT
+                        ,CURRENT_POSITION
+                        ,TIMEZONE
+                        ,ECO
+                        ,ECO_URL
                         ,DATE_FORMAT(`UTC_DATE`, '%Y-%m-%d')
                         ,`UTC_TIME`
+                        ,WHITE_ELO
+                        ,BLACK_ELO
+                        ,TIME_CONTROL
+                        ,TERMINATION
+                        ,START_TIME
+                        ,END_DATE
+                        ,END_TIME
+                        ,LINK
+                        ,MAINLINE
+                        ,TOURNAMENT
+                        ,VARIANT
+                        ,FEN
+                        ,SETUP
+                        ,`MATCH`
                     )
                 ,'256'
             ) AS ID_HASH
