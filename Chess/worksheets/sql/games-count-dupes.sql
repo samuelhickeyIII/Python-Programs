@@ -1,0 +1,1 @@
+select count(*) - count(distinct(id_hash)) from games;
