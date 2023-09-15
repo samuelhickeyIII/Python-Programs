@@ -58,6 +58,11 @@ def extraction():
                 continue
             q.task_done()
 
+
+    def extract_all_last_month():
+        pass
+
+    
     # push each task to the queue
     for username in set(usernames):
         q.put(username)
