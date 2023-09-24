@@ -1,6 +1,6 @@
 -- Create the GAME_DIMENSION table
 CREATE TABLE GAME_DIMENSION (
-    game_id varchar(64),
+    game_hash varchar(64),
     `event` VARCHAR(255),
     `site` VARCHAR(255),
     `round` varchar(16),
