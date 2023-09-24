@@ -1,2 +1,2 @@
-docker run -d -p 3307:3306 -v /Users/samuelahickey/Documents/Python-Programs/Chess/mariadb:/var/lib/mysql --shm-size=512m -e PM1=mcs1 --hostname=mcs1 --name chess-container mariadb/columnstore
-docker exec -it chess-container provision 127.0.0.1
+docker run -d -p 3307:3306 -v /Volumes/DW-1.0/Chess/mariadb:/var/lib/mysql --shm-size=512m -e PM1=mcs1 --hostname=mcs1 --name external-chess-container mariadb/columnstore
+docker exec -it external-chess-container provision 127.0.0.1
