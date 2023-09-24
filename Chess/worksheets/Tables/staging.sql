@@ -25,7 +25,8 @@ create table staging(
     VARIANT VARCHAR(255),
     FEN VARCHAR(255),
     SETUP VARCHAR(255),
-    `MATCH` VARCHAR(255)
+    `MATCH` VARCHAR(255),
+    GAME_HASH VARCHAR(64)
 )
 ENGINE = InnoDB,
 CHARACTER SET = 'utf8mb4',

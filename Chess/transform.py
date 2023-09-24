@@ -1,4 +1,5 @@
 import chess.pgn as pgn
+import hashlib
 import multiprocessing as mp
 import pandas as pd
 import sqlalchemy
@@ -52,6 +53,13 @@ def transform(file_path) -> pd.DataFrame or None:
         date, time = attr + '_DATE', attr + '_TIME'
         result[date] = pd.to_datetime(result[date], format='%Y.%m.%d').dt.date
         result[time] = pd.to_datetime(result[time], format='%H:%M:%S').dt.time
+    result["GAME_HASH"] = result.apply(
+        lambda x: hashlib.sha256(
+            str(tuple(x)).encode('utf-8'),
+            usedforsecurity=False
+        ).hexdigest(),
+        axis=1
+    )
     sleep(.1)
     return result
 
