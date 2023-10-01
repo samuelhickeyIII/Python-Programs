@@ -79,7 +79,7 @@ engine = sqlalchemy.create_engine(
 
 if __name__ == '__main__':
     print('Retrieving pgn files ...')
-    data_folder, file_paths = Path('./Chess/data/'), []
+    data_folder, file_paths = Path('/Volumes/DW-1.0/Chess/data/'), []
     for file in data_folder.glob('**/*.pgn'):
         file_paths.append(file)
 
