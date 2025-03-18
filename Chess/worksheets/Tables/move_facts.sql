@@ -1,5 +1,5 @@
 -- Create the MOVE_FACTS table with foreign keys to USER_DIMENSION, GAME_DIMENSION, and TIME_DIMENSION
-CREATE TABLE MOVE_FACTS (
+CREATE TABLE F_MOVE (
     user_hash VARCHAR(64),
     game_hash VARCHAR(64),
     time_hash VARCHAR(64),

@@ -1,5 +1,5 @@
 -- Create the GAME_DIMENSION table
-CREATE TABLE GAME_DIMENSION (
+CREATE TABLE D_GAME (
     game_hash varchar(64),
     `event` VARCHAR(255),
     `site` VARCHAR(255),

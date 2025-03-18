@@ -1,5 +1,5 @@
 -- Create the TIME_DIMENSION table
-CREATE TABLE TIME_DIMENSION (
+CREATE TABLE D_TIME (
     time_hash VARCHAR(64),
     current_utc_timestamp TIMESTAMP,
     game_start_timestamp TIMESTAMP,
