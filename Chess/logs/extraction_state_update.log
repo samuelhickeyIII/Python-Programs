@@ -1,0 +1,10 @@
+2025-03-22 17:35:23,841 - extraction_state_updater - INFO - Starting extraction state update
+2025-03-22 17:35:35,576 - extraction_state_updater - INFO - Found 390899 PGN files in ./Chess/data
+2025-03-22 17:35:36,782 - extraction_state_updater - INFO - Saved extraction state to extraction_state.json
+2025-03-22 17:35:36,782 - extraction_state_updater - INFO - Updated extraction state with 388347 new archives for 9559 users
+2025-03-22 17:35:36,909 - extraction_state_updater - INFO - Extraction state update completed
+2025-03-23 00:49:21,836 - extraction_state_updater - INFO - Starting extraction state update
+2025-03-23 00:49:45,592 - extraction_state_updater - INFO - Found 553674 PGN files in ./Chess/data
+2025-03-23 00:49:47,209 - extraction_state_updater - INFO - Saved extraction state to extraction_state.json
+2025-03-23 00:49:47,209 - extraction_state_updater - INFO - Updated extraction state with 378 new archives for 0 users
+2025-03-23 00:49:47,350 - extraction_state_updater - INFO - Extraction state update completed
