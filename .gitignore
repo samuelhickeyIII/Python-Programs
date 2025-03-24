@@ -2,4 +2,6 @@
 /Scrape
 /CAD_Lung/Input
 /Chess/data/
+/Chess/Chess/data/
 /Chess/mariadb/
+/Chess/__pycache__/
