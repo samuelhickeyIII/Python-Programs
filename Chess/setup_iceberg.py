@@ -22,7 +22,7 @@ def setup_iceberg_dependencies():
     deps_dir.mkdir(exist_ok=True)
     
     # Define Iceberg version and dependencies
-    iceberg_version = "1.8.1"
+    iceberg_version = "1.7.2"
     spark_version = "3.5"
     
     # Base Maven repository URL
@@ -31,8 +31,8 @@ def setup_iceberg_dependencies():
     # List of required dependencies (artifact coordinates and output filenames)
     dependencies = [
         # Corrected format for Iceberg Spark runtime JAR
-        (f"org/apache/iceberg/iceberg-spark-{spark_version}_2.12/{iceberg_version}/iceberg-spark-{spark_version}_2.12-{iceberg_version}.jar",
-         f"iceberg-spark-{spark_version}_2.12-{iceberg_version}.jar"),
+        # (f"org/apache/iceberg/iceberg-spark-{spark_version}_2.12/{iceberg_version}/iceberg-spark-{spark_version}_2.12-{iceberg_version}.jar",
+        #  f"iceberg-spark-{spark_version}_2.12-{iceberg_version}.jar"),
         # # Additional core Iceberg JAR
         # (f"org/apache/iceberg/iceberg-core/{iceberg_version}/iceberg-core-{iceberg_version}.jar",
         #  f"iceberg-core-{iceberg_version}.jar"),
