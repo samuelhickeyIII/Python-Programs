@@ -68,8 +68,12 @@ if __name__ == "__main__":
         
         # Verify Iceberg functionality
         print("Testing Iceberg catalog...")
-        spark.sql("CREATE DATABASE IF NOT EXISTS local.chess")
+        spark.sql("CREATE DATABASE IF NOT EXISTS local.test_db")
+        print("TEST_DB created successfully")
         spark.sql("USE local.test_db")
+        print("Switched to TEST_DB successfully")
+        spark.sql("DROP TABLE IF EXISTS local.test_db")
+        print("TEST_DB dropped successfully")
         
         print("All tests passed!")
     except Exception as e:
