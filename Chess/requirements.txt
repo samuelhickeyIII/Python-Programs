@@ -1,0 +1,8 @@
+pyiceberg==0.5.0
+pyspark==3.5.5
+python-dotenv==1.0.0
+requests==2.31.0
+pandas==2.0.3
+chess==1.9.4
+python-chess==1.999
+chess.com==3.11.1
