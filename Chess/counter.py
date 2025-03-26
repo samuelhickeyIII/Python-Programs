@@ -6,9 +6,12 @@ from pathlib import Path
 
 def count_games(file_path) -> int:
     game_counter: int = 0
-    with open(file_path) as f:
-        while game:= pgn.read_game(f):
-            game_counter += 1
+    with open(file_path, 'r', encoding='utf-8') as f:
+        try:
+            while game:= pgn.read_game(f):
+                game_counter += 1
+        except Exception as e:
+            print(f'Error reading file: {file_path} | Error: {e}')
     return game_counter  
 
 def main(path_to_PGNs:str) -> None:
@@ -48,4 +51,4 @@ def main(path_to_PGNs:str) -> None:
         )
 
 if __name__ == '__main__':
-    main('./Chess/data')
+    main('./data')
