@@ -1,0 +1,5 @@
+catalogs:
+  local:
+    uri: file:///c:/Users/samue/Documents/Python-Programs/Chess/chess_warehouse
+    type: rest
+    warehouse: c:/Users/samue/Documents/Python-Programs/Chess/chess_warehouse
