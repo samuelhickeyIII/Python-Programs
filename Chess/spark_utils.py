@@ -37,6 +37,8 @@ def create_spark_session(app_name="Chess Data Processing", with_iceberg=True):
             .config("spark.sql.defaultCatalog", "local")
             .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2")
             .master("local[*]")
+            .config("spark.driver.memory", "16g")
+            # .config("spark.executor.memory", "3g") 
         )
         
         print(f"Creating Spark session with app name: {app_name}")
