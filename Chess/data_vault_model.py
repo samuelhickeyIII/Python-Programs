@@ -31,6 +31,38 @@ def create_spark_session():
 
 # Define schemas for Data Vault 2.0 components
 
+# Staging schema for raw data
+staging: StructType = StructType([
+    StructField("EVENT", StringType(), True),
+    StructField("SITE", StringType(), True),
+    StructField("START_DATE", DateType(), True),
+    StructField("ROUND", StringType(), True),
+    StructField("WHITE", StringType(), True),
+    StructField("BLACK", StringType(), True),
+    StructField("RESULT", StringType(), True),
+    StructField("CURRENT_POSITION", StringType(), True),
+    StructField("TIMEZONE", StringType(), True),
+    StructField("ECO", StringType(), True),
+    StructField("ECO_URL", StringType(), True),
+    StructField("UTC_DATE", DateType(), True),
+    StructField("UTC_TIME", StringType(), True),
+    StructField("WHITE_ELO", IntegerType(), True),
+    StructField("BLACK_ELO", IntegerType(), True),
+    StructField("TIME_CONTROL", StringType(), True),
+    StructField("TERMINATION", StringType(), True),
+    StructField("START_TIME", StringType(), True),
+    StructField("END_DATE", DateType(), True),
+    StructField("END_TIME", StringType(), True),
+    StructField("LINK", StringType(), True),
+    StructField("MAINLINE", StringType(), True),
+    StructField("TOURNAMENT", StringType(), True),
+    StructField("VARIANT", StringType(), True),
+    StructField("FEN", StringType(), True),
+    StructField("SETUP", StringType(), True),
+    StructField("MATCH", StringType(), True),
+    StructField("GAME_HASH", StringType(), False)
+])
+
 # Hub schemas (business entity identifiers)
 hub_player_schema = StructType([
     StructField("hub_player_key", IntegerType(), False),
@@ -222,6 +254,10 @@ def create_iceberg_tables(spark, database_name="chess"):
     # Create and write Hub tables
     tables_to_create = [
         # Table name, schema, partition fields
+        # Staging table
+        ("staging", staging, []),
+
+        # Hub tables
         ("hub_player", hub_player_schema, []),
         ("hub_game", hub_game_schema, []),
         ("hub_move", hub_move_schema, []),
